@@ -2,11 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Languages extends Model
+class Language extends Model
 {
-    /** @use HasFactory<\Database\Factories\LanguagesFactory> */
-    use HasFactory;
+    protected $fillable = ['name', 'code'];
+
+    // Relationships
+    public function translationsAsSource()
+    {
+        return $this->hasMany(Translation::class, 'source_language_id');
+    }
+
+    public function translationsAsTarget()
+    {
+        return $this->hasMany(Translation::class, 'target_language_id');
+    }
 }
+
