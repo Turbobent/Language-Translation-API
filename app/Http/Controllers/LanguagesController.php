@@ -13,7 +13,7 @@ class LanguagesController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -29,7 +29,18 @@ class LanguagesController extends Controller
      */
     public function store(StoreLanguagesRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        $language = Language::create([
+            'name' => $validated['name'],
+            'code' => $validated['code'],
+        ]);
+
+        return response()->json([
+            'message' => 'Language created successfully!',
+            'language' => $language,
+        ], 201);
+
     }
 
     /**

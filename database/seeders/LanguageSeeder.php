@@ -15,7 +15,6 @@ class LanguageSeeder extends Seeder
             ['name' => 'French', 'code' => 'fr'],
             ['name' => 'German', 'code' => 'de'],
         ];
-
         Language::insert($languages);
     }
 }
