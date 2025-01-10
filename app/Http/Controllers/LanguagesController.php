@@ -40,7 +40,6 @@ class LanguagesController extends Controller
             'message' => 'Language created successfully!',
             'language' => $language,
         ], 201);
-
     }
 
     /**
